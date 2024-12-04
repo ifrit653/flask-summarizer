@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from transformers import pipeline
 import re
-
 # Initialize Flask app
 app = Flask(__name__)
 

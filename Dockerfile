@@ -9,8 +9,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Flask and any other Python dependencies
-RUN pip install --no-cache-dir flask gunicorn
 
 # Set the working directory
 WORKDIR /app
@@ -18,6 +16,8 @@ WORKDIR /app
 # Copy application code into the container
 COPY . /app
 
+# Install Flask and any other Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 # Expose the Flask port (default 5000)
 EXPOSE 5000
 

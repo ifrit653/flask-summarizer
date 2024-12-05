@@ -19,6 +19,7 @@ COPY . /app
 # Install Flask and any other Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 # Expose the Flask port (default 5000)
+RUN python -c "from transformers import pipeline; pipeline('summarization', model='sshleifer/distilbart-cnn-12-6')"
 EXPOSE 5000
 
 # Use Gunicorn for production serving (better than Flask's built-in server)
